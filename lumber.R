@@ -63,9 +63,7 @@ ggdraw(p_price_labels)
 
 #old series
 old_lumber<-get_cansim("16-10-0045-01") %>%
-  normalize_cansim_values
-
-old_lumber<-old_lumber %>%
+  normalize_cansim_values %>%
   rename(old_series=VALUE,
          category="Standard Classification of Goods (SCG)") %>%
   filter(GEO=="British Columbia") %>%
@@ -78,8 +76,6 @@ old_lumber<-old_lumber %>%
 
 new_lumber<-get_cansim("16-10-0017-01") %>%
   normalize_cansim_values %>%
- 
-new_lumber<-new_lumber %>%
   rename(new_series=VALUE,
          category="North American Product Classification System (NAPCS)") %>%
   filter(GEO=="British Columbia") %>%
